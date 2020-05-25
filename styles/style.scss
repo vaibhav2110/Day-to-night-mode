@@ -1,0 +1,339 @@
+$bgColorNight: #201d20;
+$bgColorDay: #ffffff;
+
+$primaryColorNight: #ee0979;
+$secondaryColorNight: #ff6a00;
+
+$primaryColorDay: #92fe9d;
+$secondaryColorDay: #00c9ff;
+
+$accentColor: #ae86f2;
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins";
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.wrapper_night {
+  background-color: $bgColorNight;
+  nav {
+    color: $bgColorDay;
+  }
+  .sign_in {
+    background: linear-gradient(
+      to right,
+      $primaryColorNight,
+      $secondaryColorNight
+    );
+  }
+  .buy_btn {
+    background: linear-gradient(
+      to right,
+      $primaryColorNight,
+      $secondaryColorNight
+    );
+  }
+  .bg_circle {
+    background: linear-gradient(
+      to bottom left,
+      $primaryColorNight,
+      $secondaryColorNight
+    );
+  }
+}
+
+.wrapper_day {
+  z-index: -1;
+  background-color: $bgColorDay;
+  nav {
+    color: $bgColorNight;
+  }
+  .sign_in {
+    background: linear-gradient(to right, $primaryColorDay, $secondaryColorDay);
+  }
+  .text_wrapper {
+    h4 {
+      color: $bgColorNight;
+    }
+    span {
+      color: $secondaryColorDay;
+    }
+  }
+  .buy_btn {
+    background: linear-gradient(to right, $primaryColorDay, $secondaryColorDay);
+    color: $bgColorNight;
+  }
+  .bg_circle {
+    background: linear-gradient(
+      to bottom left,
+      $primaryColorDay,
+      $secondaryColorDay
+    );
+  }
+  .image {
+    top: 60px;
+  }
+}
+
+.container {
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 250px;
+  font-weight: bold;
+  li {
+    list-style: none;
+    display: inline-block;
+    margin-right: 60px;
+    font-size: 14px;
+    .sign_in {
+      padding: 6px 25px;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+section {
+  .content {
+    width: 100%;
+    height: 70%;
+    padding: 0px 250px;
+    display: flex;
+    align-items: center;
+  }
+  .text_wrapper {
+    flex: 1;
+    color: $bgColorDay;
+    h4 {
+      font-size: 32px;
+      span {
+        color: $primaryColorNight;
+      }
+    }
+    .price {
+      margin-bottom: 50px;
+      font-size: 24px;
+      font-weight: bold;
+      color: $secondaryColorNight;
+    }
+    .size_selection {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .size {
+      font-size: 14px;
+      font-weight: bold;
+      margin-right: 25px;
+      background-color: $bgColorNight;
+      border: 2px solid $accentColor;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .active {
+      background-color: $bgColorDay;
+      color: $bgColorNight;
+    }
+    .buy_btn {
+      font-weight: bold;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 20px;
+      border-radius: 50px;
+    }
+  }
+  .image_wrapper {
+    height: 100%;
+    flex: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 200px;
+    .bg_circle {
+      position: absolute;
+      width: 450px;
+      height: 450px;
+      z-index: 1;
+      border-radius: 50%;
+    }
+    .image {
+      position: absolute;
+      transform: rotate(-20deg);
+      z-index: 2;
+      img {
+        width: 700px;
+      }
+    }
+  }
+}
+
+.tick_img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+#division {
+  position: absolute;
+  height: 100%;
+  width: 5px;
+  background: $primaryColorDay;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99;
+  box-shadow: 5px 0px 10px $bgColorNight;
+}
+
+#division::before {
+  content: "RED";
+  color: $primaryColorNight;
+  position: absolute;
+  right: 50px;
+  width: 100px;
+  letter-spacing: 4px;
+  font-size: 1.6em;
+  font-weight: bold;
+  text-align: right;
+  text-align: center;
+  background: $bgColorNight;
+}
+
+#division::after {
+  content: "BLUE";
+  color: $secondaryColorDay;
+  position: absolute;
+  left: 50px;
+  width: 100px;
+  letter-spacing: 4px;
+  font-size: 1.6em;
+  font-weight: bold;
+  text-align: center;
+  background: $bgColorNight;
+}
+
+#drag {
+  position: absolute;
+  top: 80%;
+  cursor: move;
+  width: 60px;
+  height: 60px;
+  border-left: 10px solid $primaryColorNight;
+  border-top: 10px solid $primaryColorNight;
+  border-right: 10px solid $secondaryColorDay;
+  border-bottom: 10px solid $secondaryColorDay;
+  background: white;
+  border-radius: 50%;
+  transform: translate(0, -50%);
+  box-shadow: 5px 0px 20px $bgColorNight;
+}
+
+@media only screen and (max-width: 1200px) {
+  nav {
+    padding: 25px 150px;
+  }
+  section {
+    .content {
+      padding: 0px 150px;
+    }
+    .image_wrapper {
+      flex: 4;
+      right: 100px;
+      .bg_circle {
+        position: absolute;
+        width: 350px;
+        height: 350px;
+        z-index: 1;
+        border-radius: 50%;
+      }
+      .image {
+        img {
+          width: 600px;
+        }
+      }
+    }
+  }
+  .tick_img {
+    width: 150%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 756px) {
+  nav {
+    padding: 25px 50px;
+    li {
+      margin-right: 20px;
+    }
+  }
+  section {
+    .content {
+      flex-direction: column;
+      padding: 0 0;
+    }
+    .text_wrapper{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .price {
+        margin-bottom: 20px;
+      }
+      .size {
+        margin-left: 10px;
+        margin-right: 10px;
+      }
+    }
+    .image_wrapper {
+      flex: 3;
+      right: 0px;
+      margin-top: 80px;
+      .bg_circle {
+        position: absolute;
+        width: 250px;
+        height: 250px;
+        z-index: 1;
+        border-radius: 50%;
+      }
+      .image {
+        img {
+          width: 400px;
+        }
+      }
+    }
+  }
+  .wrapper_day {
+    .image {
+      top: 20px;
+    }
+  }
+}
